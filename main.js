@@ -2,13 +2,9 @@ const NomeContext = React.createContext('nome')
 
 function MeuComponente4() {
     return (
-    <NomeContext.Consumer>
-        { (nomeContext) => (
-            <section className="meuComponente4">
-                <p>{nomeContext}</p>
-            </section>
-        )}
-    </NomeContext.Consumer>
+    <section className="meuComponente4">
+        <p>meuComponente4</p>
+    </section>
     )
 }
 
@@ -20,9 +16,13 @@ function MeuComponente3() {
     )
 }
 
-function MeuComponente2() {
+function MeuComponente2(props) {
+    const { children } = props;
     return (
     <div className='meuComponente2'>
+        <header>
+            {children}
+        </header>
         <MeuComponente3 />
     </div>
     )
@@ -31,15 +31,14 @@ function MeuComponente2() {
 function MeuComponente1() {
     const nome = 'Maximiano'
     return (
-    <NomeContext.Provider value={nome}>
-        <section className='meucomponente1'>
-            <MeuComponente2 />
-        </section>
-    </NomeContext.Provider>
+    <section className='meucomponente1'>
+        <MeuComponente2>
+            <MeuComponente4></MeuComponente4>
+        </MeuComponente2>
+    </section>
     )
 }
-
-    
+  
 function MeuComponente() {
     return (
     <div className='container'>
@@ -47,7 +46,6 @@ function MeuComponente() {
     </div>)
 }
     
-
 ReactDOM.render(
     <MeuComponente />,
     document.querySelector('#app')
