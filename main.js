@@ -1,9 +1,16 @@
 const NomeContext = React.createContext('nome')
 
 function MeuComponente4() {
+    const [idade, setIdade] = React.useState(28)
+
+    function btnPlus () {
+        setIdade(29)
+    }
+
     return (
     <section className="meuComponente4">
-        <p>meuComponente4</p>
+        <p>{idade} - wow</p>
+        <button onClick={btnPlus}>plus</button>
     </section>
     )
 }
