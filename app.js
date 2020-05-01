@@ -2,21 +2,21 @@
 
 function meuComponente1() {
     return (
-        React.createElement('div', null,
+        React.createElement('div', {className: 'class1'},
             React.createElement(meuComponente2)
         )
     )
 }
 function meuComponente2() {
     return (
-        React.createElement('div', null,
+        React.createElement('div', {className: 'class2'},
             React.createElement(meuComponente3)
         )
     )
 }
 function meuComponente3() {
     return (
-        React.createElement('div', null,
+        React.createElement('div', {className: 'class3'},
             React.createElement(meuComponente4)
         )
     )
